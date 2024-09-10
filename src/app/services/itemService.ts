@@ -14,7 +14,7 @@ export interface Item {
 
 export const fakeFetchItens = async (): Promise<Item[]> => {
   try {
-    await new Promise((resolve) => setTimeout(resolve, 500));
+    await new Promise((resolve) => setTimeout(resolve, 0));
     return fakeItems;
   } catch (error) {
     console.error("Erro ao carregar dados fake:", error);

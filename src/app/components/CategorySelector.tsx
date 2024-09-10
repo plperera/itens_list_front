@@ -33,6 +33,14 @@ export default function CategorySelector({ selectedCategory, setSelectedCategory
     { name: "Others", icon: HiDotsHorizontal },
   ];
 
+  const handleCategorySelect = (categoryName: string) => {
+    if (selectedCategory === categoryName) {
+      setSelectedCategory("");
+    } else {
+      setSelectedCategory(categoryName);
+    }
+  };
+
   return (
     <Box display="flex" alignItems="center" justifyContent="space-between" bg="background.700" p={4} borderRadius="md" border="2px solid" borderColor="border.500">
       {categories.map((category) => (
@@ -41,7 +49,7 @@ export default function CategorySelector({ selectedCategory, setSelectedCategory
           name={category.name}
           icon={category.icon}
           isSelected={selectedCategory === category.name}
-          onSelect={setSelectedCategory}
+          onSelect={handleCategorySelect}
         />
       ))}
     </Box>

@@ -15,6 +15,7 @@ export default function SearchFilterBar({
 }: SearchFilterBarProps) {
   return (
     <Flex justify="space-between" mb={4}>
+      
       <Input
         placeholder="Search items..."
         value={searchTerm}

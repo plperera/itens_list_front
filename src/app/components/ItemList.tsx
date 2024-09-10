@@ -6,11 +6,11 @@ import { Box, SimpleGrid, Text } from "@chakra-ui/react";
 import ItemCard from "./ItemCard";
 import SearchFilterBar from "./SearchFilterBar";
 import ItemSkeleton from "./ItemSkeleton";
-
+import CategorySelector from "./CategorySelector";
 
 export default function ItemList() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [filter, setFilter] = useState("");
+  const [filter, setFilter] = useState(""); // Aqui controlamos o filtro por categoria
   const [items, setItems] = useState<Item[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -37,7 +37,10 @@ export default function ItemList() {
   });
 
   return (
-    <Box padding="10vh 10vw">
+    <Box padding="10vh 7vw">
+
+      <CategorySelector selectedCategory={filter} setSelectedCategory={setFilter} />
+
       <SearchFilterBar
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
